@@ -14,3 +14,9 @@ namespace: openclaw
 
 resources:
   - namespace.yaml
+  - openclaw-configmap.yaml
+  - openclaw-deployment.yaml
+  - openclaw-pvc.yaml
+  - openclaw-secret.yaml
+  - openclaw-service.yaml
+  - openclaw-serviceaccount.yaml
