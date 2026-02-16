@@ -8,6 +8,8 @@ spec:
     type: Recreate
   template:
     metadata:
+      labels:
+        app: openclaw
     spec:
       serviceAccountName: openclaw
       initContainers:
