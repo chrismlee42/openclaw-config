@@ -36,9 +36,9 @@ data:
           enabled: true,
         },
       },
-      identity: {
-        name: "Dot",
-        theme: "helpful sloth",
-        emoji: "🦥",
-      },
+      // identity: {
+      //   name: "Dot",
+      //   theme: "helpful sloth",
+      //   emoji: "🦥",
+      // },
     }
