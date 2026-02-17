@@ -1,0 +1,32 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  labels:
+    app: openclaw
+    managedBy: argocd
+    managementCodeGroup: chrismlee42
+    managementCodeProject: openclaw-config
+  name: openclaw
+  namespace: openclaw
+spec:
+  hostnames:
+    - openclaw.service.clee.private.morphacy.net
+    - openclaw.service.chris-pc.clee.private.morphacy.net
+  parentRefs:
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: default
+      namespace: default
+      port: 443
+      sectionName: https
+  rules:
+    - backendRefs:
+        - group: ""
+          kind: Service
+          name: openclaw
+          port: 18789
+          weight: 1
+      matches:
+        - path:
+            type: PathPrefix
+            value: /
