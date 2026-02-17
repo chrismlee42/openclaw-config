@@ -1,12 +1,12 @@
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
-  name: openclaw
+  name: openclaw-canvas
   namespace: openclaw
 spec:
   hostnames:
-    - openclaw.service.clee.private.morphacy.net
-    - openclaw.service.chris-pc.clee.private.morphacy.net
+    - openclaw-canvas.service.clee.private.morphacy.net
+    - openclaw-canvas.service.chris-pc.clee.private.morphacy.net
   parentRefs:
     - group: gateway.networking.k8s.io
       kind: Gateway
@@ -19,7 +19,7 @@ spec:
         - group: ""
           kind: Service
           name: openclaw
-          port: 18789
+          port: 18793
           weight: 1
       matches:
         - path:
