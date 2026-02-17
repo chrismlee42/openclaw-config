@@ -9,11 +9,6 @@ data:
     {
       agents: {
         defaults: {
-          identity: {
-            name: "Dot",
-            theme: "helpful sloth",
-            emoji: "🦥",
-          },
           imageModel: {
             primary: "openrouter/anthropic/claude-opus-4-6",
           },
@@ -40,5 +35,10 @@ data:
           },
           enabled: true,
         },
+      },
+      identity: {
+        name: "Dot",
+        theme: "helpful sloth",
+        emoji: "🦥",
       },
     }
