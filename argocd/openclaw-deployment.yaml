@@ -49,6 +49,7 @@ spec:
             - lan
             - --port
             - "18789"
+            - allow-unconfigured
           ports:
             - name: gateway
               containerPort: 18789
