@@ -20,10 +20,10 @@ data:
           },
           "models": {
             "anthropic/claude-opus-4-6": {
-              alias: "opus"
+              "alias": "opus"
             },
             "anthropic/claude-sonnet-4-5": {
-              alias: "sonnet"
+              "alias": "sonnet"
             }
           },
           "workspace": "~/.openclaw/workspace",
