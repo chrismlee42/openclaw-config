@@ -16,6 +16,7 @@ spec:
       labels:
         app: openclaw
     spec:
+      revisionHistoryLimit: 2
       serviceAccountName: openclaw
       initContainers:
         - name: init-config
