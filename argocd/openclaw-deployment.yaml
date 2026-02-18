@@ -6,6 +6,7 @@ metadata:
   name: openclaw
 spec:
   replicas: 1
+  revisionHistoryLimit: 2
   strategy:
     type: Recreate
   selector:
@@ -16,7 +17,6 @@ spec:
       labels:
         app: openclaw
     spec:
-      revisionHistoryLimit: 2
       serviceAccountName: openclaw
       initContainers:
         - name: init-config
