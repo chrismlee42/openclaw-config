@@ -41,5 +41,11 @@ data:
           },
           "enabled": true
         }
+      },
+      "tools": {
+        "exec": {
+          "ask": "off",
+          "security": "full"
+        }
       }
     }
