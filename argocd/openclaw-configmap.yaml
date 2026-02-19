@@ -31,11 +31,11 @@ data:
         }
       },
       "channels": {
-        "discord": {,
+        "discord": {
           "allowFrom": [
             "LabMonkey42",
             "labmonkey42"
-          ]
+          ],
           "dm": {
             "enabled": true
           },
