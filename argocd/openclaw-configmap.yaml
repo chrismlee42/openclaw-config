@@ -7,6 +7,12 @@ metadata:
 data:
   openclaw.json: |
     {
+      "tools": {
+        "exec": {
+          "ask": "off",
+          "security": "full"
+        }
+      },
       "agents": {
         "defaults": {
           "imageModel": {
@@ -29,12 +35,6 @@ data:
           "workspace": "~/.openclaw/workspace",
           "userTimezone": "America/Chicago"
         },
-      },
-      "tools": {
-        "exec": {
-          "ask": "off",
-          "security": "full"
-        }
       },
       "channels": {
         "discord": {
