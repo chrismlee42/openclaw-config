@@ -30,6 +30,12 @@ data:
           "userTimezone": "America/Chicago"
         },
       },
+      "tools": {
+        "exec": {
+          "ask": "off",
+          "security": "full"
+        }
+      },
       "channels": {
         "discord": {
           "dm": {
@@ -40,12 +46,6 @@ data:
             ]
           },
           "enabled": true
-        }
-      },
-      "tools": {
-        "exec": {
-          "ask": "off",
-          "security": "full"
         }
       }
     }
