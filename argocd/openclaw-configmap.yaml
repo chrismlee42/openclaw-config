@@ -7,24 +7,6 @@ metadata:
 data:
   openclaw.json: |
     {
-      "tools": {
-        "exec": {
-          "ask": "off",
-          "security": "full"
-        }
-      },
-      "channels": {
-        "discord": {
-          "dm": {
-            "enabled": true,
-            "allowFrom": [
-              "LabMonkey42",
-              "labmonkey42"
-            ]
-          },
-          "enabled": true
-        }
-      },
       "agents": {
         "defaults": {
           "imageModel": {
@@ -46,6 +28,24 @@ data:
           },
           "workspace": "~/.openclaw/workspace",
           "userTimezone": "America/Chicago"
-        },
+        }
+      },
+      "channels": {
+        "discord": {
+          "dm": {
+            "enabled": true,
+            "allowFrom": [
+              "LabMonkey42",
+              "labmonkey42"
+            ]
+          },
+          "enabled": true
+        }
+      },
+      "tools": {
+        "exec": {
+          "ask": "off",
+          "security": "full"
+        }
       }
     }
