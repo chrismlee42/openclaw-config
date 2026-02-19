@@ -31,13 +31,13 @@ data:
         }
       },
       "channels": {
-        "discord": {
+        "discord": {,
+          "allowFrom": [
+            "LabMonkey42",
+            "labmonkey42"
+          ]
           "dm": {
-            "enabled": true,
-            "allowFrom": [
-              "LabMonkey42",
-              "labmonkey42"
-            ]
+            "enabled": true
           },
           "enabled": true
         }
