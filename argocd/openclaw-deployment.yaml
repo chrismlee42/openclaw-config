@@ -135,6 +135,9 @@ spec:
           volumeMounts:
             - name: data
               mountPath: /home/openclaw/.openclaw
+            - name: google-credentials
+              mountPath: /home/openclaw/.config/gogcli/credentials.json
+              readOnly: true
             - name: homebrew
               mountPath: /home/linuxbrew/.linuxbrew
         - name: chromium
@@ -211,6 +214,9 @@ spec:
           emptyDir:
             medium: Memory
             sizeLimit: 1Gi
+        - name: google-credentials
+          secret:
+            secretName: google-credentials
         - name: homebrew
           persistentVolumeClaim:
             claimName: homebrew
