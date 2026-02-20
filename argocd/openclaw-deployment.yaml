@@ -29,7 +29,7 @@ spec:
             - -c
             - |
               mkdir -p /home/openclaw/.config/gogcli
-              cp /home/openclaw/.config/gogcli/secret/google-credentials.json /home/openclaw/.config/gogcli/credentials.json
+              #cp /home/openclaw/.config/gogcli/secret/google-credentials.json /home/openclaw/.config/gogcli/credentials.json
               chown -R 1000:1000 /home/openclaw/.config
           securityContext:
             runAsUser: 0
