@@ -160,9 +160,9 @@ spec:
           volumeMounts:
             - name: data
               mountPath: /home/openclaw/.openclaw
-            - name: google-credentials
-              mountPath: /home/openclaw/.config/gogcli/secret
-              readOnly: true
+            # - name: google-credentials
+            #   mountPath: /home/openclaw/.config/gogcli/secret
+            #   readOnly: true
             - name: homebrew
               mountPath: /home/linuxbrew/.linuxbrew
         - name: chromium
