@@ -174,7 +174,7 @@ spec:
             - name: dshm
               mountPath: /dev/shm
         - name: homebrew
-          image: "homebrew/brew:latest"
+          image: "debian:stable-slim"
           imagePullPolicy: IfNotPresent
           command:
             - tail
