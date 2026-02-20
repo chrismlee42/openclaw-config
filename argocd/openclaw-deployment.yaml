@@ -27,7 +27,7 @@ spec:
           command:
             - /bin/sh
             - -c
-            - mkdir /home/openclaw/.config/gogcli && chown -R 1000:1000 /home/openclaw/.config
+            - mkdir /home/openclaw/.config && mkdir /home/openclaw/.config/gogcli && chown -R 1000:1000 /home/openclaw/.config
           securityContext:
             runAsUser: 0
             runAsNonRoot: false
