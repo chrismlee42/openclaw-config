@@ -17,6 +17,8 @@ spec:
       labels:
         app: openclaw
     spec:
+      securityContext:
+        fsGroup: 1000
       serviceAccountName: openclaw
       initContainers:
         - name: init-config
@@ -129,7 +131,6 @@ spec:
               cpu: 2000m
               memory: 2Gi
           securityContext:
-            fsGroup: 1000
             runAsUser: 1000
             runAsGroup: 1000
             runAsNonRoot: true
