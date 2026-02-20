@@ -96,7 +96,7 @@ spec:
                 command:
                   - /bin/sh
                   - -c
-                  - cp /home/openclaw/.config.gogcli/secret/google-credentials.json /home/openclaw/.config/gogcli/credentials.json
+                  - cp /home/openclaw/.config/gogcli/secret/google-credentials.json /home/openclaw/.config/gogcli/credentials.json
           livenessProbe:
             tcpSocket:
               port: gateway
