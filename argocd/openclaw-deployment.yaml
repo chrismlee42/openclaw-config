@@ -88,8 +88,8 @@ spec:
               value: /home/openclaw
             - name: TZ
               value: "America/Chicago"
-            - name: PATH
-              value: "/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$(PATH)"
+            # - name: PATH
+            #   value: "/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$(PATH)"
           livenessProbe:
             tcpSocket:
               port: gateway
