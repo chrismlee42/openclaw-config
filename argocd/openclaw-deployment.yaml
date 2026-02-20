@@ -17,17 +17,20 @@ spec:
       labels:
         app: openclaw
     spec:
-      securityContext:
-        fsGroup: 1000
+      # securityContext:
+      #   fsGroup: 1000
       serviceAccountName: openclaw
       initContainers:
-        - name: init-permissions
+        - name: gogcli-credentials
           image: "alpine:3.18"
           imagePullPolicy: IfNotPresent
           command:
             - /bin/sh
             - -c
-            - mkdir -p /home/openclaw/.config/gogcli && chown -R 1000:1000 /home/openclaw/.config
+            - |
+              mkdir -p /home/openclaw/.config/gogcli
+              cp /home/openclaw/.config/gogcli/secret/google-credentials.json /home/openclaw/.config/gogcli/credentials.json
+              chown -R 1000:1000 /home/openclaw/.config
           securityContext:
             runAsUser: 0
             runAsNonRoot: false
