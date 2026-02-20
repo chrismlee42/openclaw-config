@@ -90,6 +90,13 @@ spec:
               value: "America/Chicago"
             - name: PATH
               value: "/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/root/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+          lifecycle:
+            postStart:
+              exec:
+                command:
+                  - /bin/sh
+                  - -c
+                  - cp /home/openclaw/.config.gogcli/secret/google-credentials.json /home/openclaw/.config/gogcli/credentials.json
           livenessProbe:
             tcpSocket:
               port: gateway
@@ -136,7 +143,7 @@ spec:
             - name: data
               mountPath: /home/openclaw/.openclaw
             - name: google-credentials
-              mountPath: /home/openclaw/.config/gogcli/credentials.json
+              mountPath: /home/openclaw/.config/gogcli/secret
               readOnly: true
             - name: homebrew
               mountPath: /home/linuxbrew/.linuxbrew
