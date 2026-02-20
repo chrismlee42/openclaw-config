@@ -173,33 +173,33 @@ spec:
           volumeMounts:
             - name: dshm
               mountPath: /dev/shm
-        - name: homebrew
-          image: "debian:stable"
-          imagePullPolicy: IfNotPresent
-          command:
-            - tail
-            - -f
-            - /dev/null
-          resources:
-            requests:
-              cpu: 100m
-              memory: 256Mi
-            limits:
-              cpu: 1000m
-              memory: 1Gi
-          securityContext:
-            runAsUser: 1000
-            runAsGroup: 1000
-            runAsNonRoot: true
-            allowPrivilegeEscalation: false
-            capabilities:
-              drop:
-                - ALL
-            seccompProfile:
-              type: RuntimeDefault
-          volumeMounts:
-            - name: homebrew
-              mountPath: /home/linuxbrew/.linuxbrew
+        # - name: homebrew
+        #   image: "homebrew/brew:latest"
+        #   imagePullPolicy: IfNotPresent
+        #   command:
+        #     - tail
+        #     - -f
+        #     - /dev/null
+        #   resources:
+        #     requests:
+        #       cpu: 100m
+        #       memory: 256Mi
+        #     limits:
+        #       cpu: 1000m
+        #       memory: 1Gi
+        #   securityContext:
+        #     runAsUser: 1000
+        #     runAsGroup: 1000
+        #     runAsNonRoot: true
+        #     allowPrivilegeEscalation: false
+        #     capabilities:
+        #       drop:
+        #         - ALL
+        #     seccompProfile:
+        #       type: RuntimeDefault
+        #   volumeMounts:
+        #     - name: homebrew
+        #       mountPath: /home/linuxbrew/.linuxbrew
       volumes:
         - name: config
           configMap:
