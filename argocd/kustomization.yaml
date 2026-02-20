@@ -13,6 +13,7 @@ labels:
 namespace: openclaw
 
 resources:
+  - gogcli-config-pvc.yaml
   - google-credentials-secret.yaml
   - homebrew-pvc.yaml
   - namespace.yaml

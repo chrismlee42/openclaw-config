@@ -21,22 +21,24 @@ spec:
         fsGroup: 1000
       serviceAccountName: openclaw
       initContainers:
-        # - name: gogcli-credentials
-        #   image: "alpine:3.18"
-        #   imagePullPolicy: IfNotPresent
-        #   command:
-        #     - /bin/sh
-        #     - -c
-        #     - |
-        #       mkdir -p /home/openclaw/.config/gogcli
-        #       cp /tmp/google-credentials/google-credentials.json /home/openclaw/.config/gogcli/credentials.json
-        #       chown -R 1000:1000 /home/openclaw/.config
-        #   securityContext:
-        #     runAsUser: 0
-        #     runAsNonRoot: false
-        #   volumeMounts:
-        #     - name: google-credentials
-        #       mountPath: /tmp/google-credentials
+        - name: gogcli-credentials
+          image: "alpine:3.18"
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/sh
+            - -c
+            - |
+              mkdir -p /home/openclaw/.config/gogcli
+              cp /tmp/google-credentials/google-credentials.json /home/openclaw/.config/gogcli/credentials.json
+              chown -R 1000:1000 /home/openclaw/.config
+          securityContext:
+            runAsUser: 0
+            runAsNonRoot: false
+          volumeMounts:
+            - name: gogcli-config
+              mountPath: /home/openclaw/.config/gogcli
+            - name: google-credentials
+              mountPath: /tmp/google-credentials
         - name: init-config
           image: "ghcr.io/openclaw/openclaw:2026.2.15"
           imagePullPolicy: IfNotPresent
@@ -108,13 +110,6 @@ spec:
               value: "America/Chicago"
             - name: PATH
               value: "/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/root/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-          lifecycle:
-            postStart:
-              exec:
-                command:
-                  - /bin/sh
-                  - -c
-                  - mkdir -p /home/openclaw/.config/gogcli && cp /tmp/google-credentials/google-credentials.json /home/openclaw/.config/gogcli/credentials.json
           livenessProbe:
             tcpSocket:
               port: gateway
@@ -160,6 +155,8 @@ spec:
           volumeMounts:
             - name: data
               mountPath: /home/openclaw/.openclaw
+            - name: gogcli-config
+              mountPath: /home/openclaw/.config/gogcli
             - name: google-credentials
               mountPath: /tmp/google-credentials
               readOnly: true
@@ -239,6 +236,9 @@ spec:
           emptyDir:
             medium: Memory
             sizeLimit: 1Gi
+        - name: gogcli-config
+          persistentVolumeClaim:
+            claimName: gogcli-config
         - name: google-credentials
           secret:
             secretName: google-credentials
