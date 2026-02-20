@@ -13,6 +13,7 @@ labels:
 namespace: openclaw
 
 resources:
+  - homebrew-pvc.yaml
   - namespace.yaml
   - openclaw-configmap.yaml
   - openclaw-deployment.yaml

@@ -88,6 +88,8 @@ spec:
               value: /home/openclaw
             - name: TZ
               value: "America/Chicago"
+            - name: PATH
+              value: "/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$(PATH)"
           livenessProbe:
             tcpSocket:
               port: gateway
@@ -133,6 +135,8 @@ spec:
           volumeMounts:
             - name: data
               mountPath: /home/openclaw/.openclaw
+            - name: homebrew
+              mountPath: /home/linuxbrew/.linuxbrew
         - name: chromium
           image: "zenika/alpine-chrome:124"
           imagePullPolicy: IfNotPresent
@@ -180,3 +184,6 @@ spec:
           emptyDir:
             medium: Memory
             sizeLimit: 1Gi
+        - name: homebrew
+          persistentVolumeClaim:
+            claimName: homebrew
