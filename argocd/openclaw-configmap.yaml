@@ -45,8 +45,8 @@ data:
       "gateway": {
         "controlUi": {
           "allowedOrigins": [
-            http://localhost:3000,
-            https://openclaw.service.clee.private.morphacy.net:443
+            "http://localhost:3000",
+            "https://openclaw.service.clee.private.morphacy.net:443"
           ]
         }
       },
