@@ -42,6 +42,14 @@ data:
           "enabled": true
         }
       },
+      "gateway": {
+        "controlUi": {
+          "allowedOrigins": [
+            http://localhost:3000,
+            https://openclaw.service.clee.private.morphacy.net
+          ]
+        }
+      },
       "tools": {
         "exec": {
           "ask": "off",
