@@ -46,7 +46,7 @@ data:
         "controlUi": {
           "allowedOrigins": [
             http://localhost:3000,
-            https://openclaw.service.clee.private.morphacy.net
+            https://openclaw.service.clee.private.morphacy.net:443
           ]
         }
       },
