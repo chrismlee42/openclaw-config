@@ -82,7 +82,7 @@ spec:
               readOnly: true
       containers:
         - name: openclaw
-          image: "ghcr.io/openclaw/openclaw:2026.5.18"
+          image: "ghcr.io/openclaw/openclaw:2026.5.20"
           imagePullPolicy: IfNotPresent
           command:
             - node
