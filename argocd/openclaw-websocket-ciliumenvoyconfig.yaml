@@ -1,0 +1,29 @@
+apiVersion: cilium.io/v2
+kind: CiliumEnvoyConfig
+metadata:
+  name: openclaw-websocket
+spec:
+  services:
+  - name: openclaw
+    namespace: openclaw
+  resources:
+  - "@type": type.googleapis.com/envoy.config.route.v3.RouteConfiguration
+    name: openclaw-websocket-route
+    virtual_hosts:
+    - name: openclaw-vhost
+      domains: ["*"]
+      routes:
+      - match:
+          prefix: "/"
+        route:
+          weighted_clusters:
+            clusters:
+            - name: openclaw/openclaw:18789
+              weight: 100
+          timeout: 0s
+          idle_timeout: 0s
+          upgrade_configs:
+          - upgrade_type: websocket
+  - "@type": type.googleapis.com/envoy.extensions.upstreams.http.v3.HttpProtocolOptions
+    common_http_protocol_options:
+      idle_timeout: 0s

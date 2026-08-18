@@ -24,3 +24,4 @@ resources:
   - openclaw-secret.yaml
   - openclaw-service.yaml
   - openclaw-serviceaccount.yaml
+  - openclaw-websocket-ciliumenvoyconfig.yaml
