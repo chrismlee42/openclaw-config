@@ -49,7 +49,10 @@ data:
             "https://openclaw.service.clee.private.morphacy.net",
             "https://openclaw.service.clee.private.morphacy.net:443"
           ]
-        }
+        },
+        "trustedProxies": [
+          "10.244.0.0/24"
+        ]
       },
       "tools": {
         "exec": {
