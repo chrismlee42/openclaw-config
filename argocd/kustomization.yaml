@@ -19,6 +19,7 @@ resources:
   - namespace.yaml
   - openclaw-configmap.yaml
   - openclaw-deployment.yaml
+  - openclaw-home-pvc.yaml
   - openclaw-httproute.yaml
   - openclaw-pvc.yaml
   - openclaw-secret.yaml
