@@ -110,6 +110,11 @@ spec:
             - secretRef:
                 name: openclaw
           env:
+            - name: GITHUB_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: openclaw-github
+                  key: token
             - name: HOME
               value: /home/openclaw
             - name: TZ
