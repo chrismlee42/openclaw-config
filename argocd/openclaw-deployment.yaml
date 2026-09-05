@@ -175,6 +175,81 @@ spec:
               mountPath: /home/openclaw
             - name: homebrew
               mountPath: /home/linuxbrew/.linuxbrew
+        - name: openclaw-support
+          image: "ghcr.io/openclaw/openclaw:2026.9.1"
+          imagePullPolicy: IfNotPresent
+          command:
+            - "/bin/sleep"
+            - "infinity"
+          envFrom:
+            - secretRef:
+                name: openclaw
+          env:
+            - name: GITHUB_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: openclaw-github
+                  key: token
+            - name: HOME
+              value: /home/openclaw
+            - name: TZ
+              value: "America/Chicago"
+            - name: PATH
+              value: "/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/root/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+          livenessProbe:
+            tcpSocket:
+              port: gateway
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+            successThreshold: 1
+          readinessProbe:
+            tcpSocket:
+              port: gateway
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+            successThreshold: 1
+          startupProbe:
+            tcpSocket:
+              port: gateway
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            timeoutSeconds: 5
+            failureThreshold: 30
+            successThreshold: 1
+          resources:
+            requests:
+              cpu: 100m
+              memory: 512Mi
+            limits:
+              cpu: 2000m
+              memory: 2Gi
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            runAsNonRoot: true
+            allowPrivilegeEscalation: false
+            # capabilities:
+            #   drop:
+            #     - ALL
+            readOnlyRootFilesystem: false
+            seccompProfile:
+              type: RuntimeDefault
+          volumeMounts:
+            - name: data
+              mountPath: /home/openclaw/.openclaw
+            - name: gogcli-config
+              mountPath: /home/openclaw/.config/gogcli
+            - name: google-credentials
+              mountPath: /tmp/google-credentials
+              readOnly: true
+            - name: home
+              mountPath: /home/openclaw
+            - name: homebrew
+              mountPath: /home/linuxbrew/.linuxbrew
         - name: chromium
           image: "zenika/alpine-chrome:124"
           imagePullPolicy: IfNotPresent
