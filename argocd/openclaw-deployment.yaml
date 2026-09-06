@@ -88,7 +88,7 @@ spec:
               mountPath: /home/openclaw
       containers:
         - name: openclaw
-          image: "ghcr.io/openclaw/openclaw:2026.9.1"
+          image: "ghcr.io/openclaw/openclaw:2026.9.2"
           imagePullPolicy: IfNotPresent
           command:
             - node
@@ -176,7 +176,7 @@ spec:
             - name: homebrew
               mountPath: /home/linuxbrew/.linuxbrew
         - name: openclaw-support
-          image: "ghcr.io/openclaw/openclaw:2026.9.1"
+          image: "ghcr.io/openclaw/openclaw:2026.9.2"
           imagePullPolicy: IfNotPresent
           command:
             - "/bin/sleep"
