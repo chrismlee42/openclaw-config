@@ -56,8 +56,7 @@ data:
       },
       "tools": {
         "exec": {
-          "ask": "off",
-          "security": "full"
+          "mode": "full"
         }
       }
     }
