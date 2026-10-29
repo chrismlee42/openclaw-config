@@ -151,7 +151,7 @@ spec:
               memory: 512Mi
             limits:
               cpu: 2000m
-              memory: 2Gi
+              memory: 8Gi
           securityContext:
             runAsUser: 1000
             runAsGroup: 1000
